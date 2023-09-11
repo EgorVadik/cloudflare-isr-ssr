@@ -1,6 +1,8 @@
 import { Post } from '@/app/page'
 import { NextResponse } from 'next/server'
 
+export const runtime = 'edge'
+
 export async function GET(_req: Request) {
     const data: Post[] = await fetch(
         'https://cloudflare-worker-t1.hello-test-workers.workers.dev/',

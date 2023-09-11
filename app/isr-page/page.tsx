@@ -3,6 +3,7 @@ import styles from '@/app/page.module.css'
 import RevalidateBtn from '@/components/revalidate-btn'
 import Link from 'next/link'
 
+export const runtime = 'edge'
 export const revalidate = 30
 
 export default async function page() {

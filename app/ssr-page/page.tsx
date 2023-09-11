@@ -2,6 +2,7 @@ import { Post } from '@/app/page'
 import styles from '@/app/page.module.css'
 import Link from 'next/link'
 
+export const runtime = 'edge'
 export const revalidate = 0
 
 export default async function page() {

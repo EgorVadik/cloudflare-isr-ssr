@@ -1,7 +1,7 @@
 import { Post } from '@/app/page'
 import { NextResponse } from 'next/server'
 
-// export const runtime = 'edge'
+export const runtime = 'edge'
 
 export async function GET(_req: Request) {
     const data: Post[] = await fetch(

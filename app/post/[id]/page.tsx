@@ -1,7 +1,8 @@
 import { Post } from '@/app/page'
 import styles from '@/app/page.module.css'
 import BackBtn from '@/components/back-btn'
-import Link from 'next/link'
+
+export const runtime = 'edge'
 
 export async function generateStaticParams() {
     const data: Post[] = await fetch(

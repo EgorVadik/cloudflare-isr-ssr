@@ -8,9 +8,11 @@ export const runtime = 'edge'
 export const revalidate = 30
 
 export default async function page() {
-    const data: Post[] = await fetch(`${SERVER_URL}/api/ssr`).then((res) =>
-        res.json()
-    )
+    const data: Post[] = await fetch(`${SERVER_URL}/api/ssr`, {
+        next: {
+            revalidate: 30,
+        },
+    }).then((res) => res.json())
 
     return (
         <main className={styles.main}>

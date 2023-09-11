@@ -1,12 +1,13 @@
 import { Post } from '@/app/page'
 import styles from '@/app/page.module.css'
 import Link from 'next/link'
+import { SERVER_URL } from '@/constants'
 
 export const runtime = 'edge'
 export const revalidate = 0
 
 export default async function page() {
-    const data: Post[] = await fetch('http://localhost:3000/api/ssr', {
+    const data: Post[] = await fetch(`${SERVER_URL}/api/ssr`, {
         cache: 'no-cache',
     }).then((res) => res.json())
 

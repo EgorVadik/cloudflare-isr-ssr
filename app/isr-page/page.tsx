@@ -2,13 +2,14 @@ import { Post } from '@/app/page'
 import styles from '@/app/page.module.css'
 import RevalidateBtn from '@/components/revalidate-btn'
 import Link from 'next/link'
+import { SERVER_URL } from '@/constants'
 
 export const runtime = 'edge'
 export const revalidate = 30
 
 export default async function page() {
-    const data: Post[] = await fetch('http://localhost:3000/api/ssr').then(
-        (res) => res.json()
+    const data: Post[] = await fetch(`${SERVER_URL}/api/ssr`).then((res) =>
+        res.json()
     )
 
     return (

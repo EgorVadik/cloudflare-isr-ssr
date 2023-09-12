@@ -7,7 +7,7 @@ export async function GET(_req: Request) {
     console.log('SSR API called')
 
     const data: Post[] = await fetch(
-        'https://cloudflare-worker-t1.hello-test-workers.workers.dev/'
+        'https://jsonplaceholder.typicode.com/posts'
     ).then((res) => res.json())
 
     console.log('SSR API data', { data })

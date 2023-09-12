@@ -6,7 +6,7 @@ export const runtime = 'edge'
 
 export async function generateStaticParams() {
     const data: Post[] = await fetch(
-        'https://cloudflare-worker-t1.hello-test-workers.workers.dev/',
+        'https://jsonplaceholder.typicode.com/posts',
         {
             cache: 'force-cache',
         }
@@ -22,7 +22,7 @@ export default async function page({
     params: { id: string }
 }) {
     const post: Post = await fetch(
-        `https://cloudflare-worker-t1.hello-test-workers.workers.dev/${id}`,
+        `https://jsonplaceholder.typicode.com/posts${id}`,
         {
             cache: 'force-cache',
         }

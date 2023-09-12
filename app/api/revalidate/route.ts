@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache'
 export const runtime = 'edge'
 
 export async function POST(request: Request) {
+    console.log('Revalidate API called')
     const { searchParams } = new URL(request.url)
     const path = searchParams.get('path')
 
@@ -15,6 +16,8 @@ export async function POST(request: Request) {
     }
 
     revalidatePath(path)
+
+    console.log('Revalidate API data', { path })
 
     return NextResponse.json({ revalidated: true, now: Date.now() })
 }

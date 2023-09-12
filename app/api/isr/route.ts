@@ -4,6 +4,8 @@ import { NextResponse } from 'next/server'
 export const runtime = 'edge'
 
 export async function GET(_req: Request) {
+    console.log('ISR API called')
+
     const data: Post[] = await fetch(
         'https://cloudflare-worker-t1.hello-test-workers.workers.dev/',
         {
@@ -12,6 +14,8 @@ export async function GET(_req: Request) {
             },
         }
     ).then((res) => res.json())
+
+    console.log('ISR API data', { data })
 
     data.sort(() => Math.random() - 0.5)
     return new NextResponse(JSON.stringify(data), {

@@ -8,7 +8,7 @@ export const runtime = 'edge'
 export const revalidate = 30
 
 export default async function page() {
-    const data: Post[] = await fetch(`${SERVER_URL}/api/ssr`, {
+    const data: Post[] = await fetch(`${SERVER_URL}/api/isr`, {
         next: {
             revalidate: 30,
         },

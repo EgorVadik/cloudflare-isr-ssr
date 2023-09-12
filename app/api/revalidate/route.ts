@@ -19,5 +19,10 @@ export async function POST(request: Request) {
 
     console.log('Revalidate API data', { path })
 
-    return NextResponse.json({ revalidated: true, now: Date.now() })
+    return new NextResponse(
+        JSON.stringify({ revalidated: true, now: Date.now() }),
+        {
+            status: 200,
+        }
+    )
 }

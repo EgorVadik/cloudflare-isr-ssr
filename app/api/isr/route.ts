@@ -7,7 +7,8 @@ export async function GET(_req: Request) {
     console.log('ISR API called')
 
     const data: Post[] = await fetch(
-        'https://cloudflare-worker-t1.hello-test-workers.workers.dev/',
+        // 'https://cloudflare-worker-t1.hello-test-workers.workers.dev/',
+        'https://jsonplaceholder.typicode.com/posts',
         {
             next: {
                 revalidate: 30,

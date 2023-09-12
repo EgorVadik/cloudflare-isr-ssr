@@ -8,9 +8,9 @@ export const revalidate = 0
 export const dynamic = 'force-dynamic'
 
 export default async function page() {
-    const data: Post[] = await fetch(`${SERVER_URL}/api/ssr`, {
-        cache: 'no-cache',
-    }).then((res) => res.json())
+    const data: Post[] = await fetch(`${SERVER_URL}/api/ssr`).then((res) =>
+        res.json()
+    )
 
     // const data: Post[] = await fetch(
     //     'https://cloudflare-worker-t1.hello-test-workers.workers.dev/',
